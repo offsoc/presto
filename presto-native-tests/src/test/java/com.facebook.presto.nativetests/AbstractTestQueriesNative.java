@@ -35,7 +35,6 @@ import static com.facebook.presto.SystemSessionProperties.MERGE_AGGREGATIONS_WIT
 import static com.facebook.presto.SystemSessionProperties.PREFILTER_FOR_GROUPBY_LIMIT;
 import static com.facebook.presto.SystemSessionProperties.PREFILTER_FOR_GROUPBY_LIMIT_TIMEOUT_MS;
 import static com.facebook.presto.SystemSessionProperties.REMOVE_MAP_CAST;
-import static com.facebook.presto.SystemSessionProperties.REMOVE_REDUNDANT_CAST_TO_VARCHAR_IN_JOIN;
 import static com.facebook.presto.testing.MaterializedResult.resultBuilder;
 import static com.facebook.presto.tests.QueryAssertions.assertEqualsIgnoreOrder;
 import static com.google.common.collect.ImmutableSet.toImmutableSet;
@@ -67,7 +66,7 @@ public abstract class AbstractTestQueriesNative
     {
         try {
             QueryRunner javaQueryRunner = PrestoNativeQueryRunnerUtils.createJavaQueryRunner("PARQUET");
-            NativeQueryRunnerUtils.createAllTables(javaQueryRunner, false);
+            NativeQueryRunnerUtils.createAllTablesStandard(javaQueryRunner, false);
             javaQueryRunner.close();
         }
         catch (Exception e) {
@@ -662,10 +661,8 @@ public abstract class AbstractTestQueriesNative
         // nested
         assertQuery("SELECT (SELECT (SELECT (SELECT 1)))");
 
-        // TODO: Investigate error seen with disabled queries: 'expected types count (22) does not
-        // match actual column count (16)'
         // aggregation
-        computeActual("SELECT * FROM lineitem WHERE orderkey = \n" +
+        assertQuery("SELECT * FROM lineitem WHERE orderkey = \n" +
                 "(SELECT max(orderkey) FROM orders)");
 
         // no output
@@ -673,7 +670,7 @@ public abstract class AbstractTestQueriesNative
                 "(SELECT orderkey FROM orders WHERE 0=1)");
 
         // no output matching with null test
-        computeActual("SELECT * FROM lineitem WHERE \n" +
+        assertQuery("SELECT * FROM lineitem WHERE \n" +
                 "(SELECT orderkey FROM orders WHERE 0=1) " +
                 "is null");
         assertQuery("SELECT * FROM lineitem WHERE \n" +
