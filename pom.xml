@@ -81,7 +81,7 @@
         <dep.jackson.version>2.15.4</dep.jackson.version>
         <dep.j2objc.version>3.0.0</dep.j2objc.version>
         <dep.avro.version>1.11.4</dep.avro.version>
-        <dep.commons.compress.version>1.26.2</dep.commons.compress.version>
+        <dep.commons.compress.version>1.27.1</dep.commons.compress.version>
         <dep.protobuf-java.version>4.29.0</dep.protobuf-java.version>
         <dep.netty.version>4.1.119.Final</dep.netty.version>
         <dep.snakeyaml.version>2.0</dep.snakeyaml.version>
@@ -223,7 +223,7 @@
             <dependency>
                 <groupId>commons-beanutils</groupId>
                 <artifactId>commons-beanutils</artifactId>
-                <version>1.9.4</version>
+                <version>1.11.0</version>
             </dependency>
 
             <dependency>
@@ -1010,7 +1010,7 @@
             <dependency>
                 <groupId>org.apache.hive</groupId>
                 <artifactId>hive-llap-common</artifactId>
-                <version>2.3.4</version>
+                <version>4.0.0</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.hive</groupId>
@@ -1374,7 +1374,7 @@
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
-                <version>1.4.199</version>
+                <version>2.2.220</version>
             </dependency>
 
             <dependency>
@@ -1447,7 +1447,7 @@
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
-                <version>42.6.1</version>
+                <version>42.7.6</version>
             </dependency>
 
             <dependency>
@@ -1542,7 +1542,7 @@
             <dependency>
                 <groupId>org.apache.thrift</groupId>
                 <artifactId>libthrift</artifactId>
-                <version>0.14.1</version>
+                <version>0.21.0</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.httpcomponents</groupId>
@@ -2194,7 +2194,7 @@
             <dependency>
                 <groupId>org.xerial.snappy</groupId>
                 <artifactId>snappy-java</artifactId>
-                <version>1.1.10.4</version>
+                <version>1.1.10.7</version>
             </dependency>
 
             <dependency>
