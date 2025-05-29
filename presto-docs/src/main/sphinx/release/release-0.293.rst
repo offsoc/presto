@@ -64,7 +64,7 @@ ________________
 * Upgrade plexus-utils to version 3.6.0 in response to `CVE-2017-1000487 <https://nvd.nist.gov/vuln/detail/cve-2017-1000487>`_. `#24665 <https://github.com/prestodb/presto/pull/24665>`_
 * Upgrade zookeeper to 3.9.3 to fix security vulnerability in presto-accumulo, presto-delta,presto-hive,presto-kafka and presto-hudi  in response to `CVE-2023-44981 <https://nvd.nist.gov/vuln/detail/cve-2023-44981>`_. `#24403 <https://github.com/prestodb/presto/pull/24403>`_
 
-Delta Connector Changes
+Delta Lake Connector Changes
 _______________________
 * Fix a bug where after an incremental update with null values is made, reads start timing out. `#24920 <https://github.com/prestodb/presto/pull/24920>`_
 
@@ -82,8 +82,8 @@ _________________________
 * Fix to pass full session to avoid ``Unknown connector`` errors using the Nessie catalog. `#24803 <https://github.com/prestodb/presto/pull/24803>`_
 * Add support for the procedure <catalog-name>.system.invalidate_manifest_file_cache() for ManifestFile cache invalidation in Iceberg. `#24831 <https://github.com/prestodb/presto/pull/24831>`_
 * Add support for the procedure <catalog-name>.system.invalidate_statistics_file_cache() for StatisticsFile cache invalidation in Iceberg. `#24831 <https://github.com/prestodb/presto/pull/24831>`_
+ * Add support for bucket transform for columns of type ``TimeType`` in Iceberg table. `#24829 <https://github.com/prestodb/presto/pull/24829>`_
 * Replace RowDelta with AppendFiles for insert-only statements such as INSERT and CTAS. `#24989 <https://github.com/prestodb/presto/pull/24989>`_
-* Add support for bucket transform for columns of type ``TimeType`` in Iceberg table. `#24829 <https://github.com/prestodb/presto/pull/24829>`_
 
 JDBC Connector Changes
 ______________________
@@ -95,7 +95,7 @@ _______________________
 
 MongoDB Connector Changes
 _________________________
-* Add support for Json type in MongoDB. `#25089 <https://github.com/prestodb/presto/pull/25089>`_
+* Add support for JSON type in MongoDB. `#25089 <https://github.com/prestodb/presto/pull/25089>`_
 
 MySQL Connector Changes
 _______________________
