@@ -82,7 +82,7 @@ _________________________
 * Fix to pass full session to avoid ``Unknown connector`` errors using the Nessie catalog. `#24803 <https://github.com/prestodb/presto/pull/24803>`_
 * Add support for the procedure <catalog-name>.system.invalidate_manifest_file_cache() for ManifestFile cache invalidation in Iceberg. `#24831 <https://github.com/prestodb/presto/pull/24831>`_
 * Add support for the procedure <catalog-name>.system.invalidate_statistics_file_cache() for StatisticsFile cache invalidation in Iceberg. `#24831 <https://github.com/prestodb/presto/pull/24831>`_
- * Add support for bucket transform for columns of type ``TimeType`` in Iceberg table. `#24829 <https://github.com/prestodb/presto/pull/24829>`_
+* Add support for bucket transform for columns of type ``TimeType`` in Iceberg table. `#24829 <https://github.com/prestodb/presto/pull/24829>`_
 * Replace RowDelta with AppendFiles for insert-only statements such as INSERT and CTAS. `#24989 <https://github.com/prestodb/presto/pull/24989>`_
 
 JDBC Connector Changes
