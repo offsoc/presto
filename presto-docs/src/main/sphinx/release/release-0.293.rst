@@ -65,7 +65,7 @@ ________________
 * Upgrade zookeeper to 3.9.3 to fix security vulnerability in presto-accumulo, presto-delta,presto-hive,presto-kafka and presto-hudi  in response to `CVE-2023-44981 <https://nvd.nist.gov/vuln/detail/cve-2023-44981>`_. `#24403 <https://github.com/prestodb/presto/pull/24403>`_
 
 Delta Lake Connector Changes
-_______________________
+____________________________
 * Fix a bug where after an incremental update with null values is made, reads start timing out. `#24920 <https://github.com/prestodb/presto/pull/24920>`_
 
 Elasticsearch Connector Changes
