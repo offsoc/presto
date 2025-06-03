@@ -16,6 +16,7 @@ _______________
 * Fix a bug where a mirrored :func:`arrays_overlap(x, y) -> boolean` function does not return the correct value. `#23845 <https://github.com/prestodb/presto/pull/23845>`_
 * Fix returning incorrect results from the "second" UDF when a timestamp is in a time zone with an offset that is at the granularity of seconds. `#25090 <https://github.com/prestodb/presto/pull/25090>`_
 * Fix the issue of sensitive data such as passwords and access keys being exposed in logs by redacting sensitive field values. `#24886 <https://github.com/prestodb/presto/pull/24886>`_
+* Fix RedisProviderPlugin loading. `#24835 <https://github.com/prestodb/presto/pull/24835>`_
 * Improve memory usage in reader with nested readers by resetting all nested readers. `#24912 <https://github.com/prestodb/presto/pull/24912>`_
 * Improve ACL check by moving checkQueryIntegrity from Dispatch phase to Analyzer phase. `#24927 <https://github.com/prestodb/presto/pull/24927>`_
 * Improve communication between coordinator and worker with thrift serde. `#25079 <https://github.com/prestodb/presto/pull/25079>`_
@@ -24,6 +25,7 @@ _______________
 * Improve metrics creation by refactoring local variables to a dedicated class. `#24921 <https://github.com/prestodb/presto/pull/24921>`_
 * Improve performance of ``ORDER BY`` queries on single node execution :pr:`25022`. `#25022 <https://github.com/prestodb/presto/pull/25022>`_
 * Improve query plans using the ``SimplifyPlanWithEmptyInput`` optimizer to convert a table scan which returns no data to an empty values node. `#25155 <https://github.com/prestodb/presto/pull/25155>`_
+* Improve performance of LOJ + IS NULL queries by adding distinct on right side of semi-join for it. `#24884 <https://github.com/prestodb/presto/pull/24884>`_
 * Add DDL SQL support for ``SHOW CREATE SCHEMA``. `#24356 <https://github.com/prestodb/presto/pull/24356>`_
 * Add authentication capabilities to Presto router. `#24407 <https://github.com/prestodb/presto/pull/24407>`_
 * Add configuration property ``hive.metastore.catalog.name`` to pass catalog names to the metastore, enabling catalog-based schema management and filtering. `#24235 <https://github.com/prestodb/presto/pull/24235>`_
@@ -33,6 +35,10 @@ _______________
 * Add support for custom scheduler plugin. `#24439 <https://github.com/prestodb/presto/pull/24439>`_
 * Add type rewrite support for native execution. This feature can be enabled by ``native-execution-type-rewrite-enabled`` configuration property and ``native_execution_type_rewrite_enabled`` session property. :pr:`24916`. `#24916 <https://github.com/prestodb/presto/pull/24916>`_
 * Add view definitions from Analyzer phase to perform full integrity check on query credentials. `#24955 <https://github.com/prestodb/presto/pull/24955>`_
+* Add cosine_similarity function for array arguments. `#25056 <https://github.com/prestodb/presto/pull/25056>`_
+* Add session property ``query.client-timeout`` to configure how long a query can run without contact from the client application, such as the CLI, before its abandoned. `#25210 <https://github.com/prestodb/presto/pull/25210>`_
+* Add a display for number of queued queries for each Resource Group subgroup in the UI. `#24830 <https://github.com/prestodb/presto/pull/24830>`_
+* Add longest_common_prefix string function. `#24891 <https://github.com/prestodb/presto/pull/24891>`_
 * Replace ``exchange.compression-enabled``,  ``fragment-result-cache.block-encoding-compression-enabled``, ``experimental.spill-compression-enabled`` with ``exchange.compression-codec``, ``fragment-result-cache.block-encoding-compression-codec`` to enable compression codec configurations. Supported codecs include GZIP, LZ4, LZO, SNAPPY, ZLIB and ZSTD. `#24670 <https://github.com/prestodb/presto/pull/24670>`_
 * Replace dependency from PostgreSQL to redshift-jdbc42 to address `CVE-2024-1597 <https://github.com/advisories/GHSA-24rp-q3w6-vc56>`_, `CVE-2022-31197 <https://github.com/advisories/GHSA-r38f-c4h4-hqq2>`_, and `CVE-2020-13692 <https://github.com/advisories/GHSA-88cc-g835-76rp>`_. `#25106 <https://github.com/prestodb/presto/pull/25106>`_
 * Remove unused line of code from router module. `#25150 <https://github.com/prestodb/presto/pull/25150>`_
@@ -48,12 +54,17 @@ _______________
 Prestissimo (Native Execution) Changes
 ______________________________________
 * Fix REST API call ``v1/operator/task/getDetails?id=`` crash. `#24839 <https://github.com/prestodb/presto/pull/24839>`_
-* Replace using native functions with Java functions for creating failure functions when native execution is enabled. `#24792 <https://github.com/prestodb/presto/pull/24792>`_
 * Fix issue with PartitionAndSerialize re-using only keys from the first batch of data. `#25015 <https://github.com/prestodb/presto/pull/25015>`_
+* Improve http message body parsing. `#24941 <https://github.com/prestodb/presto/pull/24941>`_
 * Add BinarySortableSerializer tests with VectorFuzzer. `#24954 <https://github.com/prestodb/presto/pull/24954>`_
 * Add runtime metrics collection for S3 Filesystem. `#24554 <https://github.com/prestodb/presto/pull/24554>`_
 * Add supported for sort in PartitionAndSerialize operator. `#24953 <https://github.com/prestodb/presto/pull/24953>`_
+* Add session property ``native_request_data_sizes_max_wait_sec`` for the maximum wait time for exchange long poll requests in seconds. `#24918 <https://github.com/prestodb/presto/pull/24918>`_
+* Add session property `native_streaming_aggregation_eager_flush` to control if streaming aggregation should flush its output rows as quickly as it can. `#24947 <https://github.com/prestodb/presto/pull/24947>`_
+* Add session property `native_debug_memory_pool_name_regex` to trace allocations of memory pools matching the regex. `#24833 <https://github.com/prestodb/presto/pull/24833>`_
+* Replace using native functions with Java functions for creating failure functions when native execution is enabled. `#24792 <https://github.com/prestodb/presto/pull/24792>`_
 * Remove worker configuration property ``register-test-functions``. `#24853 <https://github.com/prestodb/presto/pull/24853>`_
+
 
 Security Changes
 ________________
@@ -63,6 +74,7 @@ ________________
 * Upgrade commons-beanutils to version 1.9.4 in response to `CVE-2014-0114 <https://nvd.nist.gov/vuln/detail/CVE-2014-0114>`_. `#24665 <https://github.com/prestodb/presto/pull/24665>`_
 * Upgrade plexus-utils to version 3.6.0 in response to `CVE-2017-1000487 <https://nvd.nist.gov/vuln/detail/cve-2017-1000487>`_. `#24665 <https://github.com/prestodb/presto/pull/24665>`_
 * Upgrade zookeeper to 3.9.3 to fix security vulnerability in presto-accumulo, presto-delta,presto-hive,presto-kafka and presto-hudi  in response to `CVE-2023-44981 <https://nvd.nist.gov/vuln/detail/cve-2023-44981>`_. `#24403 <https://github.com/prestodb/presto/pull/24403>`_
+* Upgrade MySQL to 9.2.0 to fix `CVE-2023-22102 <https://github.com/advisories/GHSA-m6vm-37g8-gqvh>`_. `#24754 <https://github.com/prestodb/presto/pull/24754>`_
 
 Delta Lake Connector Changes
 ____________________________
@@ -75,7 +87,10 @@ _______________________________
 Hive Connector Changes
 ______________________
 * Add support for Web Identity authentication in S3 security mapping with the ``hive.s3.webidentity.enabled`` property. `#24645 <https://github.com/prestodb/presto/pull/24645>`_
+* Add support for SSL/TLS encryption for HMS with configuration properties ``hive.metastore.thrift.client.tls.enabled``, ``hive.metastore.thrift.client.tls.keystore-path``, ``hive.metastore.thrift.client.tls.keystore-password`` and ``hive.metastore.thrift.client.tls.truststore-password``.
+`#24745 <https://github.com/prestodb/presto/pull/24745>`_
 * Replace listObjects with listObjectsV2 in PrestoS3FileSystem listPrefix. `#24794 <https://github.com/prestodb/presto/pull/24794>`_
+
 
 Iceberg Connector Changes
 _________________________
@@ -100,6 +115,7 @@ _________________________
 MySQL Connector Changes
 _______________________
 * Add support for GEOMETRY type in the MySQL connector. `#24996 <https://github.com/prestodb/presto/pull/24996>`_
+
 
 SQL Server Connector Changes
 ____________________________
