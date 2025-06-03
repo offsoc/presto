@@ -87,7 +87,7 @@ _______________________________
 Hive Connector Changes
 ______________________
 * Add support for Web Identity authentication in S3 security mapping with the ``hive.s3.webidentity.enabled`` property. `#24645 <https://github.com/prestodb/presto/pull/24645>`_
-* Add support for SSL/TLS encryption for HMS with configuration properties ``hive.metastore.thrift.client.tls.enabled``, ``hive.metastore.thrift.client.tls.keystore-path``, ``hive.metastore.thrift.client.tls.keystore-password`` and ``hive.metastore.thrift.client.tls.truststore-password``.`#24745 <https://github.com/prestodb/presto/pull/24745>`_
+* Add support for SSL/TLS encryption for HMS with configuration properties ``hive.metastore.thrift.client.tls.enabled``, ``hive.metastore.thrift.client.tls.keystore-path``, ``hive.metastore.thrift.client.tls.keystore-password`` and ``hive.metastore.thrift.client.tls.truststore-password``. `#24745 <https://github.com/prestodb/presto/pull/24745>`_
 * Replace listObjects with listObjectsV2 in PrestoS3FileSystem listPrefix. `#24794 <https://github.com/prestodb/presto/pull/24794>`_
 
 
