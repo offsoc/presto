@@ -25,7 +25,7 @@ _______________
 * Improve metrics creation by refactoring local variables to a dedicated class. `#24921 <https://github.com/prestodb/presto/pull/24921>`_
 * Improve performance of ``ORDER BY`` queries on single node execution :pr:`25022`. `#25022 <https://github.com/prestodb/presto/pull/25022>`_
 * Improve query plans using the ``SimplifyPlanWithEmptyInput`` optimizer to convert a table scan which returns no data to an empty values node. `#25155 <https://github.com/prestodb/presto/pull/25155>`_
-* Improve performance of LOJ + IS NULL queries by adding distinct on right side of semi-join for it. `#24884 <https://github.com/prestodb/presto/pull/24884>`_
+* Improve performance of ``LOJ + IS NULL`` queries by adding distinct on right side of semi-join for it. `#24884 <https://github.com/prestodb/presto/pull/24884>`_
 * Add DDL SQL support for ``SHOW CREATE SCHEMA``. `#24356 <https://github.com/prestodb/presto/pull/24356>`_
 * Add authentication capabilities to Presto router. `#24407 <https://github.com/prestodb/presto/pull/24407>`_
 * Add configuration property ``hive.metastore.catalog.name`` to pass catalog names to the metastore, enabling catalog-based schema management and filtering. `#24235 <https://github.com/prestodb/presto/pull/24235>`_
@@ -33,7 +33,7 @@ _______________
 * Add counter JMX metrics to Presto router. `#24449 <https://github.com/prestodb/presto/pull/24449>`_
 * Add example custom scheduler plugin - Metrics based custom scheduler plugin. `#24439 <https://github.com/prestodb/presto/pull/24439>`_
 * Add support for custom scheduler plugin. `#24439 <https://github.com/prestodb/presto/pull/24439>`_
-* Add type rewrite support for native execution. This feature can be enabled by ``native-execution-type-rewrite-enabled`` configuration property and ``native_execution_type_rewrite_enabled`` session property. :pr:`24916`. `#24916 <https://github.com/prestodb/presto/pull/24916>`_
+* Add type rewrite support for native execution. This feature can be enabled by ``native-execution-type-rewrite-enabled`` configuration property and ``native_execution_type_rewrite_enabled`` session property. #24916 <https://github.com/prestodb/presto/pull/24916>`_
 * Add view definitions from Analyzer phase to perform full integrity check on query credentials. `#24955 <https://github.com/prestodb/presto/pull/24955>`_
 * Add cosine_similarity function for array arguments. `#25056 <https://github.com/prestodb/presto/pull/25056>`_
 * Add session property ``query.client-timeout`` to configure how long a query can run without contact from the client application, such as the CLI, before its abandoned. `#25210 <https://github.com/prestodb/presto/pull/25210>`_
@@ -87,8 +87,7 @@ _______________________________
 Hive Connector Changes
 ______________________
 * Add support for Web Identity authentication in S3 security mapping with the ``hive.s3.webidentity.enabled`` property. `#24645 <https://github.com/prestodb/presto/pull/24645>`_
-* Add support for SSL/TLS encryption for HMS with configuration properties ``hive.metastore.thrift.client.tls.enabled``, ``hive.metastore.thrift.client.tls.keystore-path``, ``hive.metastore.thrift.client.tls.keystore-password`` and ``hive.metastore.thrift.client.tls.truststore-password``.
-`#24745 <https://github.com/prestodb/presto/pull/24745>`_
+* Add support for SSL/TLS encryption for HMS with configuration properties ``hive.metastore.thrift.client.tls.enabled``, ``hive.metastore.thrift.client.tls.keystore-path``, ``hive.metastore.thrift.client.tls.keystore-password`` and ``hive.metastore.thrift.client.tls.truststore-password``.`#24745 <https://github.com/prestodb/presto/pull/24745>`_
 * Replace listObjects with listObjectsV2 in PrestoS3FileSystem listPrefix. `#24794 <https://github.com/prestodb/presto/pull/24794>`_
 
 
