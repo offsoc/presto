@@ -39,6 +39,7 @@ _______________
 * Add session property ``query.client-timeout`` to configure how long a query can run without contact from the client application, such as the CLI, before it is abandoned. `#25210 <https://github.com/prestodb/presto/pull/25210>`_
 * Add a display for number of queued queries for each Resource Group subgroup in the UI. `#24830 <https://github.com/prestodb/presto/pull/24830>`_
 * Add ``longest_common_prefix`` string function. `#24891 <https://github.com/prestodb/presto/pull/24891>`_
+* Add filter based on query state for QueryResource. For example, "/v1/queryState/state=QUEUED" will return all queued queries. `#24856 <https://github.com/prestodb/presto/pull/24856>`_
 * Replace ``exchange.compression-enabled``,  ``fragment-result-cache.block-encoding-compression-enabled``, ``experimental.spill-compression-enabled`` with ``exchange.compression-codec``, ``fragment-result-cache.block-encoding-compression-codec`` to enable compression codec configurations. Supported codecs include GZIP, LZ4, LZO, SNAPPY, ZLIB and ZSTD. `#24670 <https://github.com/prestodb/presto/pull/24670>`_
 * Replace dependency from PostgreSQL to redshift-jdbc42 to address `CVE-2024-1597 <https://github.com/advisories/GHSA-24rp-q3w6-vc56>`_, `CVE-2022-31197 <https://github.com/advisories/GHSA-r38f-c4h4-hqq2>`_, and `CVE-2020-13692 <https://github.com/advisories/GHSA-88cc-g835-76rp>`_. `#25106 <https://github.com/prestodb/presto/pull/25106>`_
 * Remove unused line of code from router module. `#25150 <https://github.com/prestodb/presto/pull/25150>`_
