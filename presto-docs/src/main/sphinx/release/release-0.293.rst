@@ -14,9 +14,9 @@ Release 0.293
 * Improve communication between coordinator and worker with thrift serde. `#25079 <https://github.com/prestodb/presto/pull/25079>`_
 * Improve performance of ``ORDER BY`` queries on single node execution. `#25022 <https://github.com/prestodb/presto/pull/25022>`_
 * Add support for row filtering and column masking in access control. `#24277 <https://github.com/prestodb/presto/pull/24277>`_
-* Add security-related headers to the static resources served from the Presto Router UI, including: ``Content-Security-Policy``, ``X-Content-Type-Options``. See reference docs `Content-Security-Policy <https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP>`_ and  `X-Content-Type-Options <https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)>`_. :pr:`24272`. `#25165 <https://github.com/prestodb/presto/pull/25165>`_
+* Add security-related headers to the static resources served from the Presto Router UI, including: ``Content-Security-Policy``, ``X-Content-Type-Options``. See reference docs `Content-Security-Policy <https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP>`_ and  `X-Content-Type-Options <https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)>`_. `#25165 <https://github.com/prestodb/presto/pull/25165>`_
 * Add support for SSL/TLS encryption for HMS. `#24745 <https://github.com/prestodb/presto/pull/24745>`_
-* Add support for the procedure <catalog-name>.system.invalidate_manifest_file_cache() for ManifestFile cache invalidation in Iceberg. `#24831 <https://github.com/prestodb/presto/pull/24831>`_
+* Add support for the procedure ``<catalog-name>.system.invalidate_manifest_file_cache()`` for ManifestFile cache invalidation in Iceberg. `#24831 <https://github.com/prestodb/presto/pull/24831>`_
 * Add support for JSON type in MongoDB. `#25089 <https://github.com/prestodb/presto/pull/25089>`_
 * Add support for GEOMETRY type in the MySQL connector. `#24996 <https://github.com/prestodb/presto/pull/24996>`_
 
@@ -85,7 +85,7 @@ ______________________________________
 
 Security Changes
 ________________
-* Add security-related headers to the static resources served from the Presto Router UI, including: ``Content-Security-Policy``, ``X-Content-Type-Options``. See reference docs `Content-Security-Policy <https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP>`_ and  `X-Content-Type-Options <https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)>`_. :pr:`24272`. `#25165 <https://github.com/prestodb/presto/pull/25165>`_
+* Add security-related headers to the static resources served from the Presto Router UI, including: ``Content-Security-Policy``, ``X-Content-Type-Options``. See reference docs `Content-Security-Policy <https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP>`_ and  `X-Content-Type-Options <https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)>`_. `#25165 <https://github.com/prestodb/presto/pull/25165>`_
 * Add support for access control row filters and column masks on views. `#25052 <https://github.com/prestodb/presto/pull/25052>`_
 * Add support for row filtering and column masking in access control. `#24277 <https://github.com/prestodb/presto/pull/24277>`_
 * Upgrade commons-beanutils to version 1.9.4 in response to `CVE-2014-0114 <https://nvd.nist.gov/vuln/detail/CVE-2014-0114>`_. `#24665 <https://github.com/prestodb/presto/pull/24665>`_
@@ -111,8 +111,8 @@ ______________________
 Iceberg Connector Changes
 _________________________
 * Fix to pass full session to avoid ``Unknown connector`` errors using the Nessie catalog. `#24803 <https://github.com/prestodb/presto/pull/24803>`_
-* Add support for the procedure <catalog-name>.system.invalidate_manifest_file_cache() for ManifestFile cache invalidation in Iceberg. `#24831 <https://github.com/prestodb/presto/pull/24831>`_
-* Add support for the procedure <catalog-name>.system.invalidate_statistics_file_cache() for StatisticsFile cache invalidation in Iceberg. `#24831 <https://github.com/prestodb/presto/pull/24831>`_
+* Add support for the procedure ``<catalog-name>.system.invalidate_manifest_file_cache()`` for ManifestFile cache invalidation in Iceberg. `#24831 <https://github.com/prestodb/presto/pull/24831>`_
+* Add support for the procedure ``<catalog-name>.system.invalidate_statistics_file_cache()`` for StatisticsFile cache invalidation in Iceberg. `#24831 <https://github.com/prestodb/presto/pull/24831>`_
 * Add support for bucket transform for columns of type ``TimeType`` in Iceberg table. `#24829 <https://github.com/prestodb/presto/pull/24829>`_
 * Replace RowDelta with AppendFiles for insert-only statements such as INSERT and CTAS. `#24989 <https://github.com/prestodb/presto/pull/24989>`_
 
