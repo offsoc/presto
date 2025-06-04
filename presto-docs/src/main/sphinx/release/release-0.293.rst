@@ -5,6 +5,22 @@ Release 0.293
 **Highlights**
 ==============
 
+* Add authentication capabilities to Presto router. `#24407 <https://github.com/prestodb/presto/pull/24407>`_
+* Add coordinator health checks to Presto router. `#24449 <https://github.com/prestodb/presto/pull/24449>`_
+* Add support for custom scheduler plugin. `#24439 <https://github.com/prestodb/presto/pull/24439>`_
+* Fix ROLLBACK statement to ensure it successfully aborts non-auto commit transactions corrupted by failed statements. `#23247 <https://github.com/prestodb/presto/pull/23247>`_
+* Add DDL SQL support for ``SHOW CREATE SCHEMA``. `#24356 <https://github.com/prestodb/presto/pull/24356>`_
+* Add ``longest_common_prefix`` string function. `#24891 <https://github.com/prestodb/presto/pull/24891>`_
+* Improve communication between coordinator and worker with thrift serde. `#25079 <https://github.com/prestodb/presto/pull/25079>`_
+* Improve performance of ``ORDER BY`` queries on single node execution. `#25022 <https://github.com/prestodb/presto/pull/25022>`_
+* Add support for row filtering and column masking in access control. `#24277 <https://github.com/prestodb/presto/pull/24277>`_
+* Add security-related headers to the static resources served from the Presto Router UI, including: ``Content-Security-Policy``, ``X-Content-Type-Options``. See reference docs `Content-Security-Policy <https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP>`_ and  `X-Content-Type-Options <https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)>`_. :pr:`24272`. `#25165 <https://github.com/prestodb/presto/pull/25165>`_
+* Add support for SSL/TLS encryption for HMS. `#24745 <https://github.com/prestodb/presto/pull/24745>`_
+* Add support for the procedure <catalog-name>.system.invalidate_manifest_file_cache() for ManifestFile cache invalidation in Iceberg. `#24831 <https://github.com/prestodb/presto/pull/24831>`_
+* Add support for JSON type in MongoDB. `#25089 <https://github.com/prestodb/presto/pull/25089>`_
+* Add support for GEOMETRY type in the MySQL connector. `#24996 <https://github.com/prestodb/presto/pull/24996>`_
+
+
 **Details**
 ===========
 
