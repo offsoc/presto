@@ -33,12 +33,12 @@ _______________
 * Add counter JMX metrics to Presto router. `#24449 <https://github.com/prestodb/presto/pull/24449>`_
 * Add example custom scheduler plugin - Metrics based custom scheduler plugin. `#24439 <https://github.com/prestodb/presto/pull/24439>`_
 * Add support for custom scheduler plugin. `#24439 <https://github.com/prestodb/presto/pull/24439>`_
-* Add type rewrite support for native execution. This feature can be enabled by ``native-execution-type-rewrite-enabled`` configuration property and ``native_execution_type_rewrite_enabled`` session property. #24916 <https://github.com/prestodb/presto/pull/24916>`_
+* Add type rewrite support for native execution. This feature can be enabled by ``native-execution-type-rewrite-enabled`` configuration property and ``native_execution_type_rewrite_enabled`` session property. <https://github.com/prestodb/presto/pull/24916>`_
 * Add view definitions from Analyzer phase to perform full integrity check on query credentials. `#24955 <https://github.com/prestodb/presto/pull/24955>`_
-* Add cosine_similarity function for array arguments. `#25056 <https://github.com/prestodb/presto/pull/25056>`_
-* Add session property ``query.client-timeout`` to configure how long a query can run without contact from the client application, such as the CLI, before its abandoned. `#25210 <https://github.com/prestodb/presto/pull/25210>`_
+* Add ``cosine_similarity`` function for array arguments. `#25056 <https://github.com/prestodb/presto/pull/25056>`_
+* Add session property ``query.client-timeout`` to configure how long a query can run without contact from the client application, such as the CLI, before it is abandoned. `#25210 <https://github.com/prestodb/presto/pull/25210>`_
 * Add a display for number of queued queries for each Resource Group subgroup in the UI. `#24830 <https://github.com/prestodb/presto/pull/24830>`_
-* Add longest_common_prefix string function. `#24891 <https://github.com/prestodb/presto/pull/24891>`_
+* Add ``longest_common_prefix`` string function. `#24891 <https://github.com/prestodb/presto/pull/24891>`_
 * Replace ``exchange.compression-enabled``,  ``fragment-result-cache.block-encoding-compression-enabled``, ``experimental.spill-compression-enabled`` with ``exchange.compression-codec``, ``fragment-result-cache.block-encoding-compression-codec`` to enable compression codec configurations. Supported codecs include GZIP, LZ4, LZO, SNAPPY, ZLIB and ZSTD. `#24670 <https://github.com/prestodb/presto/pull/24670>`_
 * Replace dependency from PostgreSQL to redshift-jdbc42 to address `CVE-2024-1597 <https://github.com/advisories/GHSA-24rp-q3w6-vc56>`_, `CVE-2022-31197 <https://github.com/advisories/GHSA-r38f-c4h4-hqq2>`_, and `CVE-2020-13692 <https://github.com/advisories/GHSA-88cc-g835-76rp>`_. `#25106 <https://github.com/prestodb/presto/pull/25106>`_
 * Remove unused line of code from router module. `#25150 <https://github.com/prestodb/presto/pull/25150>`_
@@ -60,8 +60,8 @@ ______________________________________
 * Add runtime metrics collection for S3 Filesystem. `#24554 <https://github.com/prestodb/presto/pull/24554>`_
 * Add supported for sort in PartitionAndSerialize operator. `#24953 <https://github.com/prestodb/presto/pull/24953>`_
 * Add session property ``native_request_data_sizes_max_wait_sec`` for the maximum wait time for exchange long poll requests in seconds. `#24918 <https://github.com/prestodb/presto/pull/24918>`_
-* Add session property `native_streaming_aggregation_eager_flush` to control if streaming aggregation should flush its output rows as quickly as it can. `#24947 <https://github.com/prestodb/presto/pull/24947>`_
-* Add session property `native_debug_memory_pool_name_regex` to trace allocations of memory pools matching the regex. `#24833 <https://github.com/prestodb/presto/pull/24833>`_
+* Add session property ``native_streaming_aggregation_eager_flush`` to control if streaming aggregation should flush its output rows as quickly as it can. `#24947 <https://github.com/prestodb/presto/pull/24947>`_
+* Add session property ``native_debug_memory_pool_name_regex`` to trace allocations of memory pools matching the regex. `#24833 <https://github.com/prestodb/presto/pull/24833>`_
 * Replace using native functions with Java functions for creating failure functions when native execution is enabled. `#24792 <https://github.com/prestodb/presto/pull/24792>`_
 * Remove worker configuration property ``register-test-functions``. `#24853 <https://github.com/prestodb/presto/pull/24853>`_
 
@@ -87,7 +87,7 @@ _______________________________
 Hive Connector Changes
 ______________________
 * Add support for Web Identity authentication in S3 security mapping with the ``hive.s3.webidentity.enabled`` property. `#24645 <https://github.com/prestodb/presto/pull/24645>`_
-* Add support for SSL/TLS encryption for HMS with configuration properties ``hive.metastore.thrift.client.tls.enabled``, ``hive.metastore.thrift.client.tls.keystore-path``, ``hive.metastore.thrift.client.tls.keystore-password`` and ``hive.metastore.thrift.client.tls.truststore-password``. `#24745 <https://github.com/prestodb/presto/pull/24745>`_
+* Add support for SSL/TLS encryption for HMS with configuration properties ``hive.metastore.thrift.client.tls.enabled``, ``hive.metastore.thrift.client.tls.keystore-path``, ``hive.metastore.thrift.client.tls.keystore-password``, and ``hive.metastore.thrift.client.tls.truststore-password``. `#24745 <https://github.com/prestodb/presto/pull/24745>`_
 * Replace listObjects with listObjectsV2 in PrestoS3FileSystem listPrefix. `#24794 <https://github.com/prestodb/presto/pull/24794>`_
 
 
