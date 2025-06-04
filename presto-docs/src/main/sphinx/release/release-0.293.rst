@@ -23,7 +23,7 @@ _______________
 * Improve communication between coordinator and worker with thrift serde. `#25020 <https://github.com/prestodb/presto/pull/25020>`_
 * Improve how we merge multiple operator stats together. `#24921 <https://github.com/prestodb/presto/pull/24921>`_
 * Improve metrics creation by refactoring local variables to a dedicated class. `#24921 <https://github.com/prestodb/presto/pull/24921>`_
-* Improve performance of ``ORDER BY`` queries on single node execution :pr:`25022`. `#25022 <https://github.com/prestodb/presto/pull/25022>`_
+* Improve performance of ``ORDER BY`` queries on single node execution. `#25022 <https://github.com/prestodb/presto/pull/25022>`_
 * Improve query plans using the ``SimplifyPlanWithEmptyInput`` optimizer to convert a table scan which returns no data to an empty values node. `#25155 <https://github.com/prestodb/presto/pull/25155>`_
 * Improve performance of ``LOJ + IS NULL`` queries by adding distinct on right side of semi-join for it. `#24884 <https://github.com/prestodb/presto/pull/24884>`_
 * Add DDL SQL support for ``SHOW CREATE SCHEMA``. `#24356 <https://github.com/prestodb/presto/pull/24356>`_
@@ -33,7 +33,7 @@ _______________
 * Add counter JMX metrics to Presto router. `#24449 <https://github.com/prestodb/presto/pull/24449>`_
 * Add example custom scheduler plugin - Metrics based custom scheduler plugin. `#24439 <https://github.com/prestodb/presto/pull/24439>`_
 * Add support for custom scheduler plugin. `#24439 <https://github.com/prestodb/presto/pull/24439>`_
-* Add type rewrite support for native execution. This feature can be enabled by ``native-execution-type-rewrite-enabled`` configuration property and ``native_execution_type_rewrite_enabled`` session property. <https://github.com/prestodb/presto/pull/24916>`_
+* Add type rewrite support for native execution. This feature can be enabled by ``native-execution-type-rewrite-enabled`` configuration property and ``native_execution_type_rewrite_enabled`` session property. `#24916 <https://github.com/prestodb/presto/pull/24916>`_
 * Add view definitions from Analyzer phase to perform full integrity check on query credentials. `#24955 <https://github.com/prestodb/presto/pull/24955>`_
 * Add ``cosine_similarity`` function for array arguments. `#25056 <https://github.com/prestodb/presto/pull/25056>`_
 * Add session property ``query.client-timeout`` to configure how long a query can run without contact from the client application, such as the CLI, before it is abandoned. `#25210 <https://github.com/prestodb/presto/pull/25210>`_
@@ -73,7 +73,7 @@ ________________
 * Add support for row filtering and column masking in access control. `#24277 <https://github.com/prestodb/presto/pull/24277>`_
 * Upgrade commons-beanutils to version 1.9.4 in response to `CVE-2014-0114 <https://nvd.nist.gov/vuln/detail/CVE-2014-0114>`_. `#24665 <https://github.com/prestodb/presto/pull/24665>`_
 * Upgrade plexus-utils to version 3.6.0 in response to `CVE-2017-1000487 <https://nvd.nist.gov/vuln/detail/cve-2017-1000487>`_. `#24665 <https://github.com/prestodb/presto/pull/24665>`_
-* Upgrade zookeeper to 3.9.3 to fix security vulnerability in presto-accumulo, presto-delta,presto-hive,presto-kafka and presto-hudi  in response to `CVE-2023-44981 <https://nvd.nist.gov/vuln/detail/cve-2023-44981>`_. `#24403 <https://github.com/prestodb/presto/pull/24403>`_
+* Upgrade zookeeper to 3.9.3 to fix security vulnerability in presto-accumulo, presto-delta, presto-hive, presto-kafka, and presto-hudi  in response to `CVE-2023-44981 <https://nvd.nist.gov/vuln/detail/cve-2023-44981>`_. `#24403 <https://github.com/prestodb/presto/pull/24403>`_
 * Upgrade MySQL to 9.2.0 to fix `CVE-2023-22102 <https://github.com/advisories/GHSA-m6vm-37g8-gqvh>`_. `#24754 <https://github.com/prestodb/presto/pull/24754>`_
 
 Delta Lake Connector Changes
